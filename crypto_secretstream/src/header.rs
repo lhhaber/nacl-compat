@@ -1,4 +1,6 @@
 use core::convert::TryFrom;
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
 
 use chacha20::cipher::{
     consts::U24,
