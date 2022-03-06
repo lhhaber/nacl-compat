@@ -16,7 +16,7 @@ use super::{
 /// Header of the secret stream, can be sent as cleartext.
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
-pub struct Header(GenericArray<u8, U24>);
+pub struct Header(pub GenericArray<u8, U24>);
 
 impl Header {
     /// Number of bytes used by the serialisation.
