@@ -12,7 +12,8 @@ use super::{
 };
 
 /// Header of the secret stream, can be sent as cleartext.
-#[derive(Clone, Copy)]
+#[cfg_attr(feature = "host-tools", derive(Serialize, Deserialize))]
+#[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub struct Header(GenericArray<u8, U24>);
 
 impl Header {

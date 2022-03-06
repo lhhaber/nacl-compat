@@ -21,6 +21,7 @@ chacha20 = { version = "0.8", features = ["expose-core", "hchacha"] }
 poly1305 = "0.7"
 rand_core = "0.6"
 subtle = { version = "2", default-features = false }
+generic-array = { version = "0.14.5", features = ["serde"] }
 
 [target.'cfg(target_family = "wasm")'.dependencies]
 getrandom = { version = "0.2", default-features = false, features = ["js"] }
