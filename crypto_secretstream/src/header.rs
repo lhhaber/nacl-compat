@@ -42,9 +42,23 @@ impl AsRef<[u8; Header::BYTES]> for Header {
     }
 }
 
+impl AsMut<[u8; Header::BYTES]> for Header {
+    fn as_mut(&mut self) -> &mut [u8; Header::BYTES] {
+        self.0.as_mut()
+    }
+}
+
 impl From<[u8; Header::BYTES]> for Header {
     fn from(value: [u8; Header::BYTES]) -> Self {
         Self(value.into())
+    }
+}
+
+impl From<&[u8; Header::BYTES]> for Header {
+    fn from(value: &[u8; Header::BYTES]) -> Self {
+        let mut array = [0u8; Self::BYTES];
+        array.copy_from_slice(value);
+        Self::from(array)
     }
 }
 
